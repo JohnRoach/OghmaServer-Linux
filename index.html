@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Oghma Node Demo</title>
+
+    <!-- jQuery and jQuery Mobile -->
+    <script src="js/jquery-2.1.1.min.js"></script>
+    <script src="js/jquery.mobile-1.4.4.min.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="js/high/highcharts.js"></script>
+    <script src="js/high/modules/exporting.js"></script>
+    <script type="text/javascript" src="js/jsonTable.js"></script>
+    <script type="text/javascript" src="js/canvasjs.min.js"></script>
+
+    <!-- css file for mobile devices -->
+    <LINK href="js/jquery.mobile-1.4.4.min.css" rel="stylesheet" type="text/css">
+
+
+
+    <!-- Code for socket.io and device orientation handling -->
+    <script>
+        var socket = io.connect();
+
+        socket.on('node_ip_info_received',function(collected_data)
+        {//get data in string than turn to json data
+
+            all_data = jQuery.parseJSON( collected_data );
+
+
+        });
+
+
+        $(function () {
+            $(document).ready(function() {
+
+                $("#tabs").tabs();
+
+            });
+
+        });
+
+
+    </script>
+</head>
+<body onload="readDatafromB();" >
+<!-- Home -->
+<div data-role="page" id="page1">
+    <div data-theme="a" data-role="header">
+        <h3>
+            Oghma Systems
+        </h3>
+    </div>
+    <div data-role="content">
+        <div data-role="fieldcontain">
+             <label for="datarate"><b>Data Time Interval(ms):</b></label><input id="datarate" type="text" name="datarate" value="10" min="10" max="100"/>
+         </div>
+
+        <div data-role="tabs" id="tabs">
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#one" data-ajax="false">On-line Nodes </a></li>
+                    <li><a href="#two" data-ajax="false">About Oghma Systems</a></li>
+                </ul>
+            </div>
+            <div id="one" class="ui-body-d ui-content">
+
+            </div>
+            <div id="two">
+
+            </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>
