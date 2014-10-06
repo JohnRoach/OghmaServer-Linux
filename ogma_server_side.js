@@ -47,6 +47,9 @@ var app = require('http').createServer(function (request, response) {
 
 });
 
+
+app.listen(8100);
+
 console.log("server started");
 
 io.sockets.on("connection",function(socket){
