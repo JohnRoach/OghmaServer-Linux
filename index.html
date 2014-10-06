@@ -15,6 +15,7 @@
     <script src="js/high/modules/exporting.js"></script>
     <script type="text/javascript" src="js/jsonTable.js"></script>
     <script type="text/javascript" src="js/canvasjs.min.js"></script>
+    <script type="text/javascript" charset="utf-8" src="js/cordova.js"></script>
 
     <!-- css file for mobile devices -->
     <LINK href="js/jquery.mobile-1.4.4.min.css" rel="stylesheet" type="text/css">
@@ -25,14 +26,24 @@
     <script>
         var socket = io.connect();
 
+        var connected_node='';
         socket.on('node_ip',function(node_ip)
         {//get data in string than turn to json data
             console.log(node_ip);
+            connected_node=node_ip;
+
+
         });
 
         function search_for_nodes()
         {
             socket.emit('search','true');
+        }
+
+        function go_to_node()
+        {
+
+            navigator.app.loadUrl("http://"+connected_node+":8090", { openExternal:false });
         }
 
         $(function () {
@@ -65,7 +76,7 @@
                 </ul>
             </div>
             <div id="one" class="ui-body-d ui-content">
-
+                <input type="button" value="Connect to Node1" onclick="go_to_node();" />
             </div>
             <div id="two">
 
