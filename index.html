@@ -47,7 +47,7 @@
 
     </script>
 </head>
-<body>
+<body onload="search_for_nodes();">
 <!-- Home -->
 <div data-role="page" id="page1">
     <div data-theme="a" data-role="header">
@@ -56,9 +56,6 @@
         </h3>
     </div>
     <div data-role="content">
-        <div data-role="fieldcontain">
-             <label for="datarate"><b>Data Time Interval(ms):</b></label><input id="datarate" type="text" name="datarate" value="10" min="10" max="100"/>
-         </div>
 
         <div data-role="tabs" id="tabs">
             <div data-role="navbar">
