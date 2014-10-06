@@ -2,7 +2,7 @@
 var path = require('path');
 var fs = require('fs');
 
-var io = require("socket.io").listen(8100);
+var io = require("socket.io").listen(8001);
 
 var node_ip="";
 
