@@ -25,14 +25,15 @@
     <script>
         var socket = io.connect();
 
-        socket.on('node_ip_info_received',function(collected_data)
+        socket.on('node_ip',function(node_ip)
         {//get data in string than turn to json data
-
-            all_data = jQuery.parseJSON( collected_data );
-
-
+            console.log(node_ip);
         });
 
+        function search_for_nodes()
+        {
+            socket.emit('search','true');
+        }
 
         $(function () {
             $(document).ready(function() {

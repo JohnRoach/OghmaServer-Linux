@@ -50,6 +50,15 @@ var app = require('http').createServer(function (request, response) {
 
 app.listen(8100);
 
+var io2 = require('socket.io').listen(app);
+io2.sockets.on('connection', function (socket) {
+
+    socket.on('search', function (init_bool) {
+        //need to get list of sensors after stop (i.e. before a experiment starts)
+        socket.emit('node_ip',node_ip);
+    });
+});
+
 console.log("server started");
 
 io.sockets.on("connection",function(socket){
