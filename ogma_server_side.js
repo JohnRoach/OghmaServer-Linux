@@ -47,6 +47,8 @@ var app = require('http').createServer(function (request, response) {
 
 });
 
+console.log("server started");
+
 io.sockets.on("connection",function(socket){
     // Display a connected message
     console.log("Server-Client Connected!");
